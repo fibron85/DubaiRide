@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dubai Rides – Airport, Hotel, City Tour & Daily Commute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f6fb;--surface:#fff;--ink:#0d1330;--muted:#5a6483;--line:#e1e5f0;--accent:#ff6b3d;--accent2:#6c5cff;--glass:rgba(255,255,255,.12);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0f24;--surface:#121a38;--ink:#eef1ff;--muted:#9aa5cc;--line:#222d56}}
+:root[data-theme="dark"]{--bg:#0a0f24;--surface:#121a38;--ink:#eef1ff;--muted:#9aa5cc;--line:#222d56}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 'DM Sans',system-ui,sans-serif}
+h1,h2,h3{font-family:Outfit,system-ui,sans-serif;margin:0;line-height:1.05;letter-spacing:-.025em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin:12px auto 0;max-width:1120px;padding:0 12px}
+nav div{display:flex;justify-content:space-between;align-items:center;padding:10px 12px 10px 20px;border-radius:999px;background:rgba(13,19,48,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.15);color:#fff}
+.logo{font:800 20px Outfit,sans-serif;text-decoration:none}
+.logo b{color:var(--accent)}
+.pill{background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:9px 18px;border-radius:999px;font-size:15px}
+.hero{margin-top:-64px;padding:130px 0 90px;color:#fff;background:radial-gradient(900px 500px at 85% 10%,rgba(108,92,255,.55),transparent 60%),radial-gradient(700px 400px at 0% 100%,rgba(255,107,61,.35),transparent 60%),#0a0f24;position:relative;overflow:hidden}
+.hero h1{font-size:clamp(44px,9vw,96px);font-weight:800;max-width:12ch}
+.hero p{font-size:clamp(18px,2.4vw,22px);color:#c6cdf0;max-width:48ch;margin:22px 0 30px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:15px 26px;border-radius:14px;background:var(--accent);color:#fff;border:0;font:700 17px 'DM Sans',sans-serif;cursor:pointer}
+.btn.ghost{background:var(--glass);border:1px solid rgba(255,255,255,.3);color:#fff}
+.route{position:absolute;right:-40px;bottom:30px;width:min(620px,90vw);opacity:.9;pointer-events:none}
+.route path{stroke-dasharray:6 10;animation:dash 14s linear infinite}
+.route .trace{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.4s .3s ease forwards}
+@keyframes dash{to{stroke-dashoffset:-320}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:44px;color:#c6cdf0;font-size:15px}
+.stats b{display:block;font:800 30px Outfit,sans-serif;color:#fff}
+section{padding:72px 0}
+section>.wrap>h2{font-size:clamp(32px,6vw,54px);font-weight:800;margin-bottom:12px}
+.lead{color:var(--muted);margin:0 0 36px;max-width:52ch}
+.bento{display:grid;gap:14px;grid-template-columns:repeat(6,1fr)}
+.tile{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;min-height:210px;grid-column:span 6;transition:transform .25s,border-color .25s}
+.tile:hover{transform:translateY(-4px);border-color:var(--accent)}
+.tile:focus-visible{outline:3px solid var(--accent)}
+.tile .ic{font-size:38px}
+.tile h3{font-size:26px;margin:18px 0 8px}
+.tile p{margin:0;color:var(--muted);font-size:16px}
+.tile em{font-style:normal;font-weight:700;color:var(--accent);margin-top:16px}
+.tile.big{background:linear-gradient(135deg,var(--accent2),#3a2fd0);color:#fff;border:0}
+.tile.big p{color:#dcd8ff}.tile.big em{color:#fff}
+.tile.warm{background:linear-gradient(135deg,#ff6b3d,#ff9a5c);color:#fff;border:0}
+.tile.warm p,.tile.warm em{color:#fff}
+@media(min-width:760px){.t1{grid-column:span 4}.t2{grid-column:span 2}.t3{grid-column:span 2}.t4{grid-column:span 2}.t5{grid-column:span 2}}
+.book{display:grid;gap:30px}
+.pkgs{display:grid;gap:14px}
+.pkg{all:unset;box-sizing:border-box;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px 24px;display:grid;gap:6px 20px;grid-template-columns:1fr auto;align-items:center;transition:border-color .25s,transform .25s}
+.pkg:hover{border-color:var(--accent);transform:translateY(-3px)}
+.pkg:focus-visible{outline:3px solid var(--accent)}
+.pkg h3{font-size:22px}.pkg p{margin:0;color:var(--muted);font-size:16px;grid-column:1}
+.pkg strong{grid-column:2;grid-row:1/3;font:800 26px Outfit,sans-serif;color:var(--accent);text-align:right}
+.pkg strong small{display:block;font:500 13px 'DM Sans',sans-serif;color:var(--muted)}
+@media(min-width:760px){.pkgs{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:28px}
+label{display:block;font-weight:700;font-size:14px;margin:14px 0 6px}
+input,select{width:100%;font:inherit;padding:14px;border:1.5px solid var(--line);border-radius:14px;background:var(--bg);color:var(--ink)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card .btn{display:block;text-align:center;width:100%;margin-top:22px}
+.note{font-size:14px;color:var(--muted);margin:12px 0 0}
+.perks{display:grid;gap:14px;align-content:start}
+.perks div{padding:20px 22px;border-radius:20px;background:var(--surface);border:1px solid var(--line)}
+.perks h3{font-size:20px;margin-bottom:4px}.perks p{margin:0;color:var(--muted)}
+@media(min-width:860px){.book{grid-template-columns:1fr 1fr;align-items:start}}
+.nl{color:#fff;text-decoration:none;font-weight:600;font-size:15px;margin-left:auto;margin-right:12px}
+.xhero{margin-top:-64px;padding:130px 0 56px;color:#fff;background:radial-gradient(800px 420px at 90% 0%,rgba(108,92,255,.55),transparent 60%),radial-gradient(600px 360px at 0% 100%,rgba(255,107,61,.35),transparent 60%),#0a0f24}
+.xhero h1{font-size:clamp(44px,9vw,84px);font-weight:800}
+.xhero p{color:#c6cdf0;max-width:48ch;margin:16px 0 0;font-size:20px}
+.tip{margin-bottom:24px;padding:20px 24px}
+.spots{display:grid;gap:18px;margin:0 0 24px}
+.spot{background:var(--surface);border:1px solid var(--line);border-radius:26px;overflow:hidden;display:flex;flex-direction:column}
+.spot svg{display:block;width:100%;height:auto;aspect-ratio:400/220}
+.sb{padding:22px 24px 26px;display:flex;flex-direction:column;gap:12px;flex:1}
+.sb h3{font-size:26px}.sb p{margin:0;color:var(--muted)}
+.sb .best{border-left:4px solid var(--accent);padding-left:12px;color:var(--ink);font-size:15px}
+.sb .btn{margin-top:auto;text-align:center;padding:12px 20px;font-size:16px}
+@media(min-width:760px){.spots{grid-template-columns:1fr 1fr}}
+@media(min-width:1020px){.spots{grid-template-columns:repeat(3,1fr)}}
+.gh{font-size:clamp(28px,5vw,40px);font-weight:800;margin:40px 0 16px}
+footer{padding:36px 0 110px;color:var(--muted);font-size:15px;border-top:1px solid var(--line)}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;background:#25d366;color:#06301a;font-weight:700;text-decoration:none;padding:14px 20px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.route path{animation:none}.route .trace{stroke-dashoffset:0}.tile{transition:none}}
+</style>
+</head>
+<body>
+<nav><div><a class="logo" href="#home">Dubai<b>Rides</b></a><a class="nl" href="#explore">Explore Dubai</a><a class="pill" id="callLink" href="tel:+971558895749">Call now</a></div></nav>
+
+<header class="hero" id="homeHero">
+  <div class="wrap">
+    <h1>Ride Dubai, without the wait.</h1>
+    <p>Private drivers for airport and hotel transfers, city tours, trips between emirates, and daily school and office runs.</p>
+    <div class="cta"><a class="btn" href="#book">Book a ride</a><a class="btn ghost" href="#services">See services</a></div>
+    <div class="stats"><div><b>24/7</b>Always available</div><div><b>5</b>Ride types</div><div><b>Fixed</b>Prices upfront</div></div>
+  </div>
+  <svg class="route" viewBox="0 0 620 220" fill="none" aria-hidden="true">
+    <path class="trace" d="M10 190 C120 190 130 60 250 90 S400 190 470 110 S580 30 610 40" stroke="#ff6b3d" stroke-width="5" stroke-linecap="round"/>
+    <path d="M10 190 C120 190 130 60 250 90 S400 190 470 110 S580 30 610 40" stroke="#fff" stroke-width="2" opacity=".5"/>
+    <circle cx="10" cy="190" r="9" fill="#fff"/><circle cx="610" cy="40" r="9" fill="#6c5cff" stroke="#fff" stroke-width="3"/>
+  </svg>
+</header>
+
+<main id="home">
+<section id="services"><div class="wrap">
+  <h2>Pick your ride</h2>
+  <p class="lead">Tap a service to start your booking.</p>
+  <div class="bento">
+    <button class="tile big t1" data-s="0"><span class="ic">✈️</span><div><h3>Airport pick-up and drop-off</h3><p>DXB, DWC and Sharjah. We track your flight, so delays never leave you waiting.</p></div><em>Book this ›</em></button>
+    <button class="tile t2" data-s="1"><span class="ic">🏨</span><div><h3>Hotel transfers</h3><p>Door to door, any hotel in Dubai.</p></div><em>Book this ›</em></button>
+    <button class="tile t3" data-s="2"><span class="ic">🌆</span><div><h3>Dubai city tour</h3><p>Burj Khalifa, Palm Jumeirah, souks and more.</p></div><em>Book this ›</em></button>
+    <button class="tile t4" data-s="3"><span class="ic">🛣️</span><div><h3>Intercity drop-off</h3><p>Abu Dhabi, Sharjah, Ajman, RAK, Al Ain.</p></div><em>Book this ›</em></button>
+    <button class="tile warm t5" data-s="4"><span class="ic">🏫</span><div><h3>Daily commute</h3><p>Home to office or school, with a regular driver.</p></div><em>Book this ›</em></button>
+  </div>
+</div></section>
+
+<section id="packages"><div class="wrap">
+  <h2>Packages</h2>
+  <p class="lead">Fixed prices for the most popular rides. Tap a package to book it.</p>
+  <div class="pkgs">
+    <button class="pkg" data-s="5"><h3>Full day tour around Dubai</h3><p>A full day with your own driver at the top sights.</p><strong><small>Starting from</small>AED 1,100</strong></button>
+    <button class="pkg" data-s="6"><h3>Half day tour around Dubai</h3><p>A shorter tour of Dubai’s highlights.</p><strong><small>Starting from</small>AED 600</strong></button>
+    <button class="pkg" data-s="7"><h3>Airport transfer, up to 60 km</h3><p>Pick-up and drop-off between the airport and any location around Dubai.</p><strong>AED 250</strong></button>
+    <button class="pkg" data-s="8"><h3>Airport transfer, around 20 km</h3><p>Pick-up and drop-off for shorter trips from the airport.</p><strong>AED 150</strong></button>
+    <button class="pkg" data-s="1"><h3>Hotel pick-up and drop-off</h3><p>From and to the airport or any tourist location.</p><strong><small>Price</small>Ask us</strong></button>
+  </div>
+</div></section>
+
+<section id="book"><div class="wrap book">
+  <form class="card" id="bookForm" onsubmit="return false">
+    <h2 style="font-size:32px">Book a ride</h2>
+    <label for="service">Service</label>
+    <select id="service"><option>Airport pick-up / drop-off</option><option>Hotel pick-up / drop-off</option><option>Dubai city tour</option><option>Intercity drop-off</option><option>Daily commute (office or school)</option><option>Package: Full day tour, from AED 1100</option><option>Package: Half day tour, from AED 600</option><option>Package: Airport transfer up to 60 km, AED 250</option><option>Package: Airport transfer around 20 km, AED 150</option></select>
+    <label for="pickup">Pick-up location</label><input id="pickup" placeholder="e.g. Dubai Marina, Terminal 3">
+    <label for="drop">Drop-off location</label><input id="drop" placeholder="e.g. Burj Al Arab">
+    <div class="row"><div><label for="date">Date</label><input id="date" type="date"></div><div><label for="time">Time</label><input id="time" type="time"></div></div>
+    <div class="row"><div><label for="name">Your name</label><input id="name" autocomplete="name"></div><div><label for="pax">Passengers</label><input id="pax" type="number" min="1" max="12" value="1"></div></div>
+    <a class="btn" id="send" href="#" target="_blank" rel="noopener">Send booking on WhatsApp</a>
+    <p class="note">Opens WhatsApp with your details filled in. We confirm the price and driver there.</p>
+  </form>
+  <div class="perks">
+    <h2 style="font-size:clamp(32px,5vw,46px);font-weight:800;margin-bottom:6px">Why ride with us</h2>
+    <div><h3>On time, every time</h3><p>Your driver arrives before your pick-up time, not at it.</p></div>
+    <div><h3>Clear prices</h3><p>You get the fare before the ride starts. No surprise extras.</p></div>
+    <div><h3>Clean, comfortable cars</h3><p>Air-conditioned, with water on board and child seats on request.</p></div>
+  </div>
+</div></section>
+</main>
+
+<main id="explore" hidden>
+<div class="xhero"><div class="wrap"><h1>Explore Dubai</h1><p>The best places to see in the city, and the best time to visit each one.</p></div></div>
+<section><div class="wrap">
+  <div class="card tip"><strong>Best season:</strong> November to March has mild weather that is ideal for sightseeing. From June to August it gets very hot, so plan outdoor stops for early morning or evening.</div>
+  <h2 class="gh">Landmarks</h2>
+  <div class="spots" id="spots"></div>
+  <h2 class="gh">Shopping</h2>
+  <div class="spots" id="spotsShop"></div>
+  <h2 class="gh">Family fun</h2>
+  <div class="spots" id="spotsFun"></div>
+  <h2 class="gh">Night life</h2>
+  <div class="spots" id="spotsNight"></div>
+  <div class="card xcta"><h2 style="font-size:30px">See them with a local driver</h2><p class="lead" style="margin:10px 0 0">Book a half day or full day tour and we will take you to all of these places in comfort.</p><a class="btn" href="#packages">View tour packages</a></div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><strong>DubaiRides</strong> · Available 24/7 · WhatsApp and phone: <span id="phoneShow"></span></div></footer>
+<a class="fab" id="fab" href="#" target="_blank" rel="noopener">WhatsApp us</a>
+
+<script>
+// Replace with your real WhatsApp number (country code, digits only).
+var PHONE="971558895749", PHONE_LABEL="+971 55 889 5749";
+var $=function(i){return document.getElementById(i)};
+$("callLink").href="tel:+"+PHONE;$("phoneShow").textContent=PHONE_LABEL;
+$("fab").href="https://wa.me/"+PHONE;
+document.querySelectorAll(".tile,.pkg").forEach(function(b){
+  b.addEventListener("click",function(){
+    $("service").selectedIndex=+b.dataset.s;
+    $("book").scrollIntoView({behavior:"smooth"});
+    setTimeout(function(){$("pickup").focus({preventScroll:true})},500);
+  });
+});
+$("send").addEventListener("click",function(){
+  var l=["Hello, I’d like to book a ride.","Service: "+$("service").value,"Pick-up: "+($("pickup").value||"-"),"Drop-off: "+($("drop").value||"-"),"Date: "+($("date").value||"-")+" "+($("time").value||""),"Passengers: "+($("pax").value||"1"),"Name: "+($("name").value||"-")];
+  this.href="https://wa.me/"+PHONE+"?text="+encodeURIComponent(l.join("\n"));
+});
+function pic(bg,inner){return "<svg viewBox='0 0 400 220' preserveAspectRatio='xMidYMid slice' aria-hidden='true' style='background:"+bg+"'>"+inner+"</svg>"}
+var SPOTS=[
+{t:"Burj Khalifa",d:"The tallest building in the world at 828 metres. Take the lift to the observation decks for views over the whole city, then walk to the Dubai Mall and its fountain next door.",b:"Around sunset, from November to March. Book your tickets ahead.",s:pic("linear-gradient(#ff9a5c,#6c5cff)","<circle cx='310' cy='140' r='34' fill='#ffd27a'/><rect x='30' y='150' width='40' height='70' fill='#12163a'/><rect x='80' y='170' width='50' height='50' fill='#12163a'/><rect x='270' y='160' width='45' height='60' fill='#12163a'/><rect x='325' y='175' width='50' height='45' fill='#12163a'/><polygon points='200,8 205,55 213,100 222,150 232,220 168,220 178,150 187,100 195,55' fill='#12163a'/>")},
+{t:"Palm Jumeirah",d:"A man-made island shaped like a palm tree, home to Atlantis, beach clubs, hotels and restaurants. Drive along the trunk and the crescent for sea and skyline views.",b:"Late afternoon to sunset, from October to April for beach weather.",s:pic("linear-gradient(#9be3ff,#2aa6b8)","<rect y='150' width='400' height='70' fill='#0a5c6a'/><path d='M60 200 Q200 110 340 200' stroke='#e9d8a6' stroke-width='10' fill='none' stroke-linecap='round'/><path d='M200 190 V40 M200 70 L125 48 M200 70 L275 48 M200 105 L112 92 M200 105 L288 92 M200 140 L106 134 M200 140 L294 134' stroke='#e9d8a6' stroke-width='9' fill='none' stroke-linecap='round'/>")},
+{t:"Burj Al Arab",d:"The sail-shaped hotel on its own island is the symbol of modern Dubai. You can photograph it from Jumeirah Public Beach or from the waterfront at Madinat Jumeirah.",b:"Early morning for soft light, or sunset for golden photos.",s:pic("linear-gradient(#ffc27a,#ff6b9a)","<rect y='170' width='400' height='50' fill='#0a2a5a'/><circle cx='80' cy='60' r='26' fill='#fff2c4'/><path d='M168 176 C150 120 190 50 202 14 C218 60 246 120 236 176 Z' fill='#fff'/><path d='M202 14 V176' stroke='#d7dbea' stroke-width='3'/><rect x='150' y='172' width='100' height='8' fill='#c9b48a'/>")},
+{t:"Dubai Marina",d:"A waterfront district of glass towers, yachts and cafes. Stroll the Marina Walk, then continue to JBR beach and its restaurants.",b:"Evening after sunset, when the towers light up. Winter months are best for walking.",s:pic("linear-gradient(#141a55,#6c5cff)","<rect x='20' y='110' width='45' height='80' fill='#0c1030'/><rect x='75' y='60' width='40' height='130' fill='#0c1030'/><rect x='125' y='90' width='50' height='100' fill='#0c1030'/><rect x='185' y='30' width='42' height='160' fill='#0c1030'/><rect x='237' y='80' width='48' height='110' fill='#0c1030'/><rect x='295' y='50' width='40' height='140' fill='#0c1030'/><rect x='345' y='110' width='40' height='80' fill='#0c1030'/><rect y='190' width='400' height='30' fill='#0b2060'/><g fill='#ffd27a'><rect x='85' y='80' width='6' height='6'/><rect x='100' y='110' width='6' height='6'/><rect x='195' y='55' width='6' height='6'/><rect x='210' y='100' width='6' height='6'/><rect x='300' y='80' width='6' height='6'/><rect x='320' y='120' width='6' height='6'/><rect x='135' y='120' width='6' height='6'/><rect x='250' y='110' width='6' height='6'/></g>")},
+{t:"Dubai Frame",d:"A giant picture frame, 150 metres tall. From the top you see modern Dubai on one side and the old city on the other, with a glass-floor walkway above the park.",b:"Late afternoon through sunset, on a clear day.",s:pic("linear-gradient(#8fd3ff,#ffe9b8)","<circle cx='320' cy='50' r='26' fill='#fff6d6'/><rect x='125' y='28' width='150' height='170' fill='none' stroke='#e0a82e' stroke-width='22'/><rect y='198' width='400' height='22' fill='#c8b27a'/><rect x='60' y='150' width='40' height='48' fill='#9fb4c8'/><rect x='300' y='130' width='40' height='68' fill='#9fb4c8'/>")},
+{t:"Al Fahidi and the Old Souks",d:"Old Dubai around the Creek: narrow lanes in Al Fahidi, the Gold Souk and the Spice Souk. Cross the Creek on a traditional abra boat for a few dirhams.",b:"Morning or evening, to avoid the midday heat. Winter is the most comfortable.",s:pic("linear-gradient(#ffb347,#c2410c)","<g stroke='#3b1204' stroke-width='3'><path d='M70 0 V28 M200 0 V46 M330 0 V28'/></g><g fill='#ffe08a'><circle cx='70' cy='38' r='11'/><circle cx='200' cy='56' r='11'/><circle cx='330' cy='38' r='11'/></g><g fill='#3b1204'><path d='M30 220 V130 a40 40 0 0 1 80 0 V220 Z'/><path d='M160 220 V130 a40 40 0 0 1 80 0 V220 Z'/><path d='M290 220 V130 a40 40 0 0 1 80 0 V220 Z'/></g>")}
+];
+$("spots").innerHTML=SPOTS.map(function(p){return "<article class='spot'>"+p.s+"<div class='sb'><h3>"+p.t+"</h3><p>"+p.d+"</p><p class='best'><strong>Best time to visit:</strong> "+p.b+"</p><button class='btn' data-book='1'>Book a city tour</button></div></article>"}).join("");
+$("spots").addEventListener("click",function(e){var b=e.target.closest("[data-book]");if(!b)return;$("service").selectedIndex=2;location.hash="book";route()});
+function bags(a,b,c){return pic("linear-gradient(#ffd1e8,#ffb3a0)","<rect x='70' y='90' width='90' height='110' rx='8' fill='"+a+"'/><rect x='190' y='60' width='100' height='140' rx='8' fill='"+b+"'/><rect x='305' y='115' width='70' height='85' rx='8' fill='"+c+"'/><g stroke='#fff' stroke-width='6' fill='none'><path d='M90 90 a25 25 0 0 1 50 0'/><path d='M215 60 a25 25 0 0 1 50 0'/><path d='M320 115 a20 20 0 0 1 40 0'/></g><rect y='200' width='400' height='20' fill='#e8a08a'/>")}
+var JET="<g stroke='#bfe9ff' stroke-width='4' fill='none' stroke-linecap='round'><path d='M200 150 Q200 40 160 22 M200 150 Q200 30 240 22 M200 150 V8 M200 150 Q160 70 120 60 M200 150 Q240 70 280 60'/></g>";
+var SHOP=[
+{t:"Dubai Mall",d:"One of the largest malls in the world, with hundreds of shops, the Dubai Aquarium, an ice rink and the Dubai Fountain right outside. It sits next to Burj Khalifa.",b:"Weekday daytime for smaller crowds. Stay for the fountain show in the evening.",s:pic("linear-gradient(#0f1450,#3b3bbd)","<rect x='20' y='150' width='360' height='70' fill='#1b2250'/><g fill='#ffd27a'><rect x='50' y='170' width='14' height='20'/><rect x='110' y='170' width='14' height='20'/><rect x='270' y='170' width='14' height='20'/><rect x='330' y='170' width='14' height='20'/></g>"+JET)},
+{t:"Mall of the Emirates",d:"A large mall with fashion, dining and Ski Dubai, an indoor snow park where you can ski, snowboard or just play in the snow.",b:"Weekdays, at any time of year. It is air-conditioned, so it is a great choice in the summer heat.",s:pic("linear-gradient(#bfe9ff,#eaf6ff)","<polygon points='0,220 120,70 200,140 290,40 400,220' fill='#fff' stroke='#9ec9e8' stroke-width='3'/><polygon points='290,40 330,100 300,120 270,90' fill='#d7ecfa'/><g fill='#fff'><circle cx='50' cy='40' r='4'/><circle cx='150' cy='30' r='3'/><circle cx='350' cy='30' r='4'/><circle cx='220' cy='60' r='3'/></g><path d='M170 160 L205 185' stroke='#ff6b3d' stroke-width='5' stroke-linecap='round'/>")},
+{t:"Dubai Outlet Mall",d:"Discounted fashion and lifestyle brands in an outlet mall away from the city centre. A good stop if you want to shop for less.",b:"Weekday mornings, or any day in winter. Sale seasons give the biggest savings.",s:bags("#6c5cff","#ff6b3d","#0e7c86")},
+{t:"Outlet Village",d:"Outlet shopping with reduced prices on fashion and lifestyle brands, in an open-air village style setting.",b:"Weekday mornings, and during sale seasons for the best prices.",s:bags("#0e7c86","#6c5cff","#ff6b3d")},
+{t:"Dragon Mart",d:"A huge trading centre for Chinese goods, with electronics, furniture, clothing, home items and more at low prices. Bargaining is normal here.",b:"Weekday mornings, when it is quiet. Wear comfortable shoes, the complex is very large.",s:pic("linear-gradient(#ffe08a,#f97316)","<path d='M50 95 Q200 40 350 95 L330 115 H70 Z' fill='#b91c1c'/><rect x='95' y='115' width='22' height='105' fill='#7f1d1d'/><rect x='283' y='115' width='22' height='105' fill='#7f1d1d'/><rect x='80' y='130' width='240' height='16' fill='#b91c1c'/><path d='M200 146 V160' stroke='#7f1d1d' stroke-width='3'/><circle cx='200' cy='178' r='26' fill='#ffd27a'/><circle cx='200' cy='178' r='10' fill='#b91c1c'/>")}
+];
+var FUN=[
+{t:"Global Village",d:"A winter-season park of country pavilions, street food, shopping, rides and live shows. Browse the pavilions for gifts from around the world.",b:"Evenings, while it is open from October to May. Season 31 opens on 14 October 2026. Check dates before you go.",s:pic("linear-gradient(#1b1450,#c2410c)","<circle cx='300' cy='110' r='60' fill='none' stroke='#ffd27a' stroke-width='4'/><path d='M300 50 V170 M240 110 H360 M258 68 L342 152 M342 68 L258 152' stroke='#ffd27a' stroke-width='2'/><rect x='292' y='170' width='16' height='50' fill='#1a0d35'/><g fill='#1a0d35'><polygon points='20,220 20,150 60,110 100,150 100,220'/><polygon points='110,220 110,165 145,130 180,165 180,220'/></g><g fill='#ffd27a'><rect x='54' y='160' width='12' height='20'/><rect x='139' y='178' width='12' height='20'/></g>")},
+{t:"Dubai Parks and Resorts",d:"A theme park resort with Motiongate Dubai, Bollywood Parks Dubai and Legoland Dubai. Choose the park that suits your family.",b:"Weekdays from October to April. Arrive when the gates open to beat the queues and the heat.",s:pic("linear-gradient(#7fd1ff,#ffe9b8)","<path d='M0 200 C60 200 70 80 130 80 S190 200 230 200 S290 60 340 60 S390 150 400 140' stroke='#e11d48' stroke-width='8' fill='none'/><g stroke='#7a4a2a' stroke-width='4'><path d='M130 88 V210 M340 68 V210 M80 150 V210 M230 200 V215'/></g><rect y='205' width='400' height='15' fill='#6aa84f'/>")}
+];
+var NIGHT=[
+{t:"Dhow cruise dinner",d:"Dinner on a traditional wooden boat along Dubai Creek or in the Marina, with buffet food, music and the city lights.",b:"After sunset, at any time of year. Winter evenings are best for the open deck. Book ahead.",s:pic("linear-gradient(#141a55,#6c5cff)","<circle cx='330' cy='45' r='20' fill='#fff2c4'/><rect y='170' width='400' height='50' fill='#0b2060'/><path d='M205 150 L205 40 L295 150 Z' fill='#ffe6b0'/><path d='M100 150 H310 L280 188 H130 Z' fill='#8b5a2b'/><path d='M110 150 Q205 120 300 150' stroke='#ffd27a' stroke-width='2' fill='none'/>")},
+{t:"Rooftop lounges",d:"Lounges at the top of hotels in Downtown, the Marina and Palm Jumeirah, with skyline views, music and dining.",b:"Around sunset, to watch the city change from day to night. Check each venue for its dress code and booking rules.",s:pic("linear-gradient(#1a0f3d,#ff6b3d)","<g fill='#150a2e'><rect x='30' y='110' width='40' height='110'/><rect x='80' y='80' width='36' height='140'/><rect x='290' y='90' width='40' height='130'/><rect x='340' y='120' width='45' height='100'/><rect y='185' width='400' height='35'/></g><path d='M0 40 Q100 85 200 40 T400 40' stroke='#ffd27a' stroke-width='2' fill='none'/><g fill='#ffd27a'><circle cx='50' cy='62' r='5'/><circle cx='110' cy='72' r='5'/><circle cx='170' cy='62' r='5'/><circle cx='240' cy='62' r='5'/><circle cx='310' cy='72' r='5'/><circle cx='370' cy='55' r='5'/></g>")},
+{t:"Dubai Fountain show",d:"Water jets, light and music on the lake in front of Dubai Mall and Burj Khalifa. It is free to watch from the promenade.",b:"Any evening after sunset. Shows usually repeat about every half hour, so check the times. Arrive early for a good spot.",s:pic("linear-gradient(#0f1450,#6c5cff)","<polygon points='80,10 83,60 88,120 94,200 66,200 72,120 77,60' fill='#0c1030'/><rect y='160' width='400' height='60' fill='#0b2060'/>"+JET)},
+{t:"Desert BBQ night",d:"An evening in the desert with a camp dinner, live shows, camel rides and stargazing, a short drive from the city.",b:"Winter evenings from November to March, when nights are cool and the sky is clear.",s:pic("linear-gradient(#0a0f3d,#6c3b7a)","<g fill='#fff'><circle cx='50' cy='30' r='2'/><circle cx='120' cy='60' r='2'/><circle cx='200' cy='25' r='2'/><circle cx='290' cy='50' r='2'/><circle cx='350' cy='20' r='2'/><circle cx='330' cy='80' r='2'/></g><path d='M0 180 Q100 130 200 170 T400 150 V220 H0 Z' fill='#7a4a2a'/><polygon points='200,175 190,200 210,200' fill='#ffb347'/><polygon points='200,160 194,190 206,190' fill='#ffe08a'/>")}
+];
+function render(id,arr,label){var el=$(id);el.innerHTML=arr.map(function(p){return "<article class='spot'>"+p.s+"<div class='sb'><h3>"+p.t+"</h3><p>"+p.d+"</p><p class='best'><strong>Best time to visit:</strong> "+p.b+"</p><button class='btn' data-book='1'>"+label+"</button></div></article>"}).join("");el.addEventListener("click",function(e){if(!e.target.closest("[data-book]"))return;$("service").selectedIndex=2;location.hash="book";route()})}
+render("spotsShop",SHOP,"Book a ride there");render("spotsFun",FUN,"Book a ride there");render("spotsNight",NIGHT,"Book a night out");
+function route(){var h=location.hash.slice(1),ex=h==="explore";$("explore").hidden=!ex;$("home").hidden=ex;$("homeHero").hidden=ex;document.title=ex?"Explore Dubai – Dubai Rides":"Dubai Rides – Airport, Hotel, City Tour & Daily Commute";if(ex||!h){window.scrollTo(0,0)}else{var t=$(h);if(t)t.scrollIntoView()}}
+window.addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
