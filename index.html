@@ -99,6 +99,24 @@ input,select{width:100%;font:inherit;padding:14px;border:1.5px solid var(--line)
 .gpts div{padding:22px;border-radius:22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18)}
 .gpts h3{font-size:21px;margin-bottom:6px}.gpts p{margin:0;color:#c6cdf0;font-size:16px}
 @media(min-width:860px){.trust{grid-template-columns:1fr 1fr}.gpts{grid-template-columns:repeat(3,1fr)}.guide{margin:0 auto;max-width:1096px}}
+.drv{display:grid;gap:20px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:32px;padding:32px}
+.drv h2{font-size:clamp(30px,5.5vw,46px);font-weight:800;margin-bottom:12px}
+.drv p{margin:0;color:var(--muted);font-size:18px}
+.badge{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.drv ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.drv li{padding:14px 18px;border-radius:16px;background:var(--bg);border:1px solid var(--line);font-weight:600}
+.drv li::before{content:"✓";color:var(--accent);font-weight:800;margin-right:10px}
+.fleet{display:grid;gap:24px;align-items:center}
+.van{border-radius:28px;overflow:hidden;background:linear-gradient(135deg,#6c5cff,#0e7c86)}
+.van svg{display:block;width:100%;height:auto}
+.van figcaption{padding:0 22px 20px;color:#fff;font:700 22px Outfit,sans-serif}
+.van figcaption small{display:block;font:400 15px 'DM Sans',sans-serif;color:#dcd8ff}
+.fl{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.fl div{padding:18px;border-radius:20px;background:var(--surface);border:1px solid var(--line)}
+.fl i{font-style:normal;font-size:28px;display:block;margin-bottom:6px}
+.fl h3{font-size:18px;margin-bottom:4px}.fl p{margin:0;color:var(--muted);font-size:15px;line-height:1.45}
+@media(min-width:860px){.drv{grid-template-columns:1.1fr .9fr;padding:44px}.fleet{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.fl{grid-template-columns:1fr}}
 .gh{font-size:clamp(28px,5vw,40px);font-weight:800;margin:40px 0 16px}
 .partners{padding:56px 0;border-top:1px solid var(--line);text-align:center}.partners h2{font-size:clamp(28px,5vw,40px);font-weight:800;margin-bottom:8px}.partners .lead{margin:0 auto 28px}.logos{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}.logos figure{margin:0}.logos img{display:block;width:120px;height:120px;border-radius:26px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,.12)}.logos figcaption{margin-top:10px;font-weight:700;font-size:15px}
 footer{padding:36px 0 110px;color:var(--muted);font-size:15px;border-top:1px solid var(--line)}
@@ -170,6 +188,36 @@ footer{padding:36px 0 110px;color:var(--muted);font-size:15px;border-top:1px sol
   </div>
   <a class="btn" style="margin-top:28px" href="#packages">See tour packages</a>
 </div></div></section>
+
+<section id="drivers" style="padding:24px 0"><div class="wrap"><div class="drv">
+  <div>
+    <span class="badge">Dubai Taxi Corporation</span>
+    <h2>Professional, trusted drivers from Dubai Taxi Corporation</h2>
+    <p>Your driver comes from Dubai Taxi Corporation. They are professional, polite and experienced on Dubai’s roads, so you arrive safely and on time.</p>
+  </div>
+  <ul>
+    <li>Drivers from Dubai Taxi Corporation</li>
+    <li>Polite, professional service</li>
+    <li>Experienced on Dubai’s roads</li>
+  </ul>
+</div></div></section>
+
+<section id="fleet"><div class="wrap">
+  <h2>Our modern fleet</h2>
+  <p class="lead">Ride in a latest-model van that is comfortable for families and groups.</p>
+  <div class="fleet">
+    <figure class="van" style="margin:0">
+      <svg viewBox="0 0 400 210" aria-hidden="true"><ellipse cx="200" cy="186" rx="170" ry="10" fill="rgba(0,0,0,.25)"/><path d="M30 140 Q30 100 70 92 L150 60 Q260 48 330 70 Q372 84 372 120 V148 Q372 156 364 156 H38 Q30 156 30 148Z" fill="#eef1f8"/><path d="M92 96 L150 72 H212 V100 H92Z" fill="#6aa7d8"/><path d="M222 72 H298 Q330 80 342 100 H222Z" fill="#6aa7d8"/><rect x="352" y="108" width="20" height="6" rx="3" fill="#ffd27a"/><path d="M40 128 H360" stroke="#c8cfe0" stroke-width="3"/><circle cx="105" cy="156" r="26" fill="#12163a"/><circle cx="105" cy="156" r="11" fill="#cfd6e6"/><circle cx="300" cy="156" r="26" fill="#12163a"/><circle cx="300" cy="156" r="11" fill="#cfd6e6"/></svg>
+      <figcaption>Hyundai Staria<small>6 seater, latest model</small></figcaption>
+    </figure>
+    <div class="fl">
+      <div><i>🚐</i><h3>Hyundai Staria, 6 seater</h3><p>A very modern van with room for the whole group.</p></div>
+      <div><i>🧳</i><h3>Luggage space</h3><p>Plenty of room for suitcases, so everyone travels with their bags.</p></div>
+      <div><i>❄️</i><h3>Heated and cooling seats</h3><p>Stay comfortable in any weather, from hot afternoons to cool nights.</p></div>
+      <div><i>✨</i><h3>Neat and clean</h3><p>Every vehicle is kept neat and clean for your ride.</p></div>
+    </div>
+  </div>
+</div></section>
 
 <section id="book"><div class="wrap book">
   <form class="card" id="bookForm" onsubmit="return false">
